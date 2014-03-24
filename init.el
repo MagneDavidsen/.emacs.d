@@ -1,5 +1,6 @@
-(require 'cask (expand-file-name "~/.cask/cask.el"))
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
+(require 'pallet)
 
 ;; ------ http://stackoverflow.com/questions/2079095/how-to-modularize-an-emacs-configuration -----
 (defconst user-init-dir
@@ -16,3 +17,4 @@
 ;; -------------------------------------------------------------------------------------------------
 
 (load-user-file "various-fixes.el")
+(load-user-file "theme.el")

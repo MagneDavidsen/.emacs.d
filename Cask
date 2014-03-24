@@ -1,4 +1,7 @@
+(source gnu)
 (source melpa)
+(source "marmalade" "http://marmalade-repo.org/packages/")
+(source "org" "http://orgmode.org/elpa/")
 
 (depends-on "auto-complete")
 (depends-on "dash")
@@ -11,3 +14,6 @@
 (depends-on "s")
 (depends-on "smartparens")
 (depends-on "yasnippet")
+(depends-on "color-theme-solarized")
+(depends-on "haskell-mode")
+(depends-on "pallet")
