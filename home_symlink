@@ -1,0 +1,10 @@
+#!/bin/bash
+
+EMACSD_PATH="$HOME/.emacs.d"
+
+if [ -d $EMACSD_PATH ]; then 
+    echo "$EMACSD_PATH already exists!"
+  else
+    ln -s "$(pwd)/$f" $EMACSD_PATH
+    echo "Done!"
+fi
