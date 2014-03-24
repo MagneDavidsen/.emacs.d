@@ -1,0 +1,13 @@
+(source melpa)
+
+(depends-on "auto-complete")
+(depends-on "dash")
+(depends-on "f")
+(depends-on "flycheck")
+(depends-on "helm")
+(depends-on "magit")
+(depends-on "popup")
+(depends-on "projectile")
+(depends-on "s")
+(depends-on "smartparens")
+(depends-on "yasnippet")
