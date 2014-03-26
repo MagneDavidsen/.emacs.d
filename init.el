@@ -17,4 +17,5 @@
 ;; -------------------------------------------------------------------------------------------------
 
 (load-user-file "various-fixes.el")
+(load-user-file "sane-defaults.el")
 (load-user-file "theme.el")

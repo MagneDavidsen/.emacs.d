@@ -1,33 +1,51 @@
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+;; Turn off GUI
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(setenv "PATH" (concat (getenv "PATH") (concat ":" (expand-file-name "~/Library/Haskell/bin"))))
-(setq exec-path (append exec-path (list (expand-file-name "~/Library/Haskell/bin"))))
+;; Turn off splash screen
+(setq inhibit-startup-message t)
+
+;; Add ./lisp to lod path
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; Add external projects to load path
+(dolist (project (directory-files "~/.emacs.d/lisp" t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
+
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
+
+;; Run at full power please
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; OSX fixes
 
-; usr/local/bin isn't always in the path when running emacs in os x for some reason
-(if (not (string-match "/usr/local/bin" (getenv "PATH")))
-    (progn
-      (setenv "PATH" (concat (getenv "PATH") ":" "/usr/local/bin"))))
-(if (eq system-type 'darwin)
+(setq is-mac (equal system-type 'darwin))
+
+;; Setup environment variables from the user's shell.
+(when is-mac
+  (exec-path-from-shell-initialize))
+(if is-mac
     (progn
       ;; cocoa fullscreen
       ;; command = meta and option = control
-      (setenv "PATH" (concat (getenv "PATH") ":" "/Library/PostgreSQL/9.1/bin"))
-      (setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/bin")))
-      (setenv "CLOJURESCRIPT_HOME" (expand-file-name  "~/lib/clojurescript"))
-      (setq exec-path (append exec-path (list "/Library/PostgreSQL/9.1/bin")))
-      (setq exec-path (append exec-path (list (expand-file-name "~/lib"))))
-      (setq exec-path (append exec-path (list (expand-file-name "~/bin"))))
       (setq ns-command-modifier 'meta)
       (setq ns-option-modifier 'control)))
 
-(setenv "PATH" (concat (getenv "PATH") ":"
-                       (expand-file-name  "~/.rvm/gems/ruby-1.9.3-p286/bin")))
-
-(setq exec-path (append exec-path (list (expand-file-name "~/Library/Haskell/bin"))))
-(setenv "PATH" (concat (getenv "PATH") ":"  (expand-file-name "~/Library/Haskell/bin")))
 
 ;; ------ shortcut fixes ---------
 ;; nxml
@@ -48,20 +66,6 @@
 (add-hook 'term-mode-hook (lambda()
                 (yas-minor-mode -1)))
 (put 'erase-buffer 'disabled nil)
-
-;(set-face-attribute 'default nil :height 120)
-(setq locale-coding-system 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(set-selection-coding-system 'utf-8-unix)
-(prefer-coding-system 'utf-8-unix)
-(set-locale-environment "en_US.UTF-8-UNIX")
-
-;; set up unicode
-(prefer-coding-system       'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
 
 ;; From Emacs wiki
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))

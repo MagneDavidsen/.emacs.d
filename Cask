@@ -16,4 +16,7 @@
 (depends-on "yasnippet")
 (depends-on "color-theme-solarized")
 (depends-on "haskell-mode")
+(depends-on "exec-path-from-shell")
+(depends-on "haskell-mode")
+
 (depends-on "pallet")
