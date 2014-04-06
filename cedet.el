@@ -68,8 +68,11 @@
 (global-ede-mode 1)
 (ede-enable-generic-projects)
 
-
 ;; Setup JAVA....
 (require 'cedet-java)
 
 ;;; minimial-cedet-config.el ends here
+
+(require 'semantic/bovine/gcc)
+
+(require 'semantic/bovine/clang)

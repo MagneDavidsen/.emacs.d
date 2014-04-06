@@ -21,5 +21,6 @@
 (depends-on "restclient")
 (depends-on "cmake-mode")
 (depends-on "cmake-project")
+(depends-on "company")
 
 (depends-on "pallet")
