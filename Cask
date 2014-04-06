@@ -19,5 +19,7 @@
 (depends-on "exec-path-from-shell")
 (depends-on "haskell-mode")
 (depends-on "restclient")
+(depends-on "cmake-mode")
+(depends-on "cmake-project")
 
 (depends-on "pallet")

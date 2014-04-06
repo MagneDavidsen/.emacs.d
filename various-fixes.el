@@ -6,14 +6,6 @@
 ;; Turn off splash screen
 (setq inhibit-startup-message t)
 
-;; Add ./lisp to lod path
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-;; Add external projects to load path
-(dolist (project (directory-files "~/.emacs.d/lisp" t "\\w+"))
-  (when (file-directory-p project)
-    (add-to-list 'load-path project)))
-
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name

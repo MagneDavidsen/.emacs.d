@@ -16,6 +16,19 @@
   (load-file (expand-file-name file user-init-dir)))
 ;; -------------------------------------------------------------------------------------------------
 
+;; Load cedet before we do anything with the load path... It needs special treatment 
+;; to ensure correct load order of things
+(load-user-file "cedet.el")
+
+;; Add ./lisp to lod path
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+;; Add external projects to load path
+;(dolist (project (directory-files "~/.emacs.d/lisp" t "\\w+"))
+;  (when (file-directory-p project)
+;    (add-to-list 'load-path project)))
+(let ((default-directory "~/.emacs.d/lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 (load-user-file "various-fixes.el")
 (load-user-file "sane-defaults.el")
 (load-user-file "theme.el")
