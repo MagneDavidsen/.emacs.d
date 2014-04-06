@@ -18,5 +18,6 @@
 (depends-on "haskell-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "haskell-mode")
+(depends-on "restclient")
 
 (depends-on "pallet")
