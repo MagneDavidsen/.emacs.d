@@ -76,3 +76,4 @@
 (require 'semantic/bovine/gcc)
 
 (require 'semantic/bovine/clang)
+(require 'semantic/ia)

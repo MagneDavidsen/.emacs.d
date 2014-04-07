@@ -33,3 +33,4 @@
 (load-user-file "sane-defaults.el")
 (load-user-file "theme.el")
 (load-user-file "company-mode.el")
+(load-user-file "ido-mode.el")
