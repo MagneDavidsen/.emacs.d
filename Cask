@@ -22,5 +22,7 @@
 (depends-on "cmake-mode")
 (depends-on "cmake-project")
 (depends-on "company")
+(depends-on "ido-ubiquitous")
+(depends-on "smex")
 
 (depends-on "pallet")
