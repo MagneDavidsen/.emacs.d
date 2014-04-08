@@ -35,3 +35,4 @@
 (load-user-file "company-mode.el")
 (load-user-file "ido-mode.el")
 (load-user-file "find-file-in-repository.el")
+(load-user-file "haskell-mode.el")
