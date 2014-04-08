@@ -35,3 +35,4 @@
 (depends-on "smartparens")
 (depends-on "smex")
 (depends-on "yasnippet")
+(depends-on "haskell-mode")
