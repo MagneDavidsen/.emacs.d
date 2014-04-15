@@ -36,3 +36,6 @@
 (load-user-file "ido-mode.el")
 (load-user-file "find-file-in-repository.el")
 (load-user-file "haskell-mode.el")
+(load-user-file "info.el")
+(load-user-file "flycheck.el")
+(load-user-file "eclim.el")

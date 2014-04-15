@@ -1,3 +1,5 @@
+(global-hl-line-mode)
+
 ;; Turn off GUI
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
