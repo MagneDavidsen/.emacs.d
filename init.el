@@ -22,11 +22,13 @@
 
 ;; Add ./lisp to lod path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/lisp/flycheck-haskell")
 ;; Add external projects to load path
 ;(dolist (project (directory-files "~/.emacs.d/lisp" t "\\w+"))
 ;  (when (file-directory-p project)
 ;    (add-to-list 'load-path project)))
 (let ((default-directory "~/.emacs.d/lisp/"))
+
   (normal-top-level-add-subdirs-to-load-path))
 
 (load-user-file "various-fixes.el")
@@ -39,3 +41,4 @@
 (load-user-file "info.el")
 (load-user-file "flycheck.el")
 (load-user-file "eclim.el")
+(load-user-file "flycheck-haskell.el")
