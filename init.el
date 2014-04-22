@@ -42,3 +42,4 @@
 (load-user-file "flycheck.el")
 (load-user-file "eclim.el")
 (load-user-file "flycheck-haskell.el")
+(load-user-file "dockerfile-mode.el")
