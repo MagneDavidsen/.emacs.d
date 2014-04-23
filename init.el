@@ -18,7 +18,7 @@
 
 ;; Load cedet before we do anything with the load path... It needs special treatment 
 ;; to ensure correct load order of things
-(load-user-file "cedet.el")
+;;(load-user-file "cedet.el")
 
 ;; Add ./lisp to lod path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
